@@ -3,8 +3,8 @@ Exam 1, problem 4.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Nathalie Grier.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -73,6 +73,27 @@ def problem4(number_of_stairs, step_size, starting_point, window):
     # IMPORTANT: For PARTIAL CREDIT, you can draw just the black "bottoms"
     #            of the stair steps.
     # -------------------------------------------------------------------------
+    start = starting_point
+    end = rg.Point(start.x + (number_of_stairs) * step_size, start.y - (number_of_stairs) * step_size)
+    for k in range(number_of_stairs):
+        startb = rg.Point(start.x + (k) * step_size, start.y - (k + 1) * step_size)
+        endb = rg.Point(startb.x + step_size, startb.y)
+        black_line = rg.Line(startb, endb)
+        black_line.thickness = 3
+        black_line.attach_to(window)
+
+        startm = rg.Point(start.x + (k) * step_size, start.y - k * step_size)
+        endm = rg.Point(startm.x, startm.y - step_size)
+        magenta_line = rg.Line(startm, endm)
+        magenta_line.color = 'magenta'
+        magenta_line.thickness = 3
+
+        start.attach_to(window)
+        end.attach_to(window)
+        magenta_line.attach_to(window)
+
+        window.render()
+
 
 
 # -----------------------------------------------------------------------------
