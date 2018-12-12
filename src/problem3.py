@@ -284,11 +284,11 @@ def problem3b(m, r):
            which is approximately 12.020144157845959.
      """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     ###########################################################################
     v = 0
-    for k in range(m + 1 - r):
+    for k in range(m):
         v = v + (k + 1)/((k + r) ** (k + 1))
     return v
 
